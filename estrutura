@@ -1,0 +1,63 @@
+Ajudante-Idoso/
+│
+├── .github/
+│   └── ISSUE_TEMPLATE/
+│
+├── assets/
+│   ├── fonts/
+│   ├── icons/
+│   ├── images/
+│   └── sounds/
+│
+├── components/
+│   ├── appbar.py
+│   ├── botao_principal.py
+│   ├── card_comunicacao.py
+│   ├── card_rotina.py
+│   ├── dialog_confirmacao.py
+│   └── menu_inferior.py
+│
+├── data/
+│   ├── comunicacoes.json
+│   ├── contatos.json
+│   ├── configuracoes.json
+│   └── rotina.json
+│
+├── docs/
+│   ├── imagens/
+│   ├── prototipos/
+│   └── roadmap.md
+│
+├── models/
+│   ├── comunicacao.py
+│   ├── contato.py
+│   └── rotina.py
+│
+├── screens/
+│   ├── __init__.py
+│   ├── home.py
+│   ├── comunicacao.py
+│   ├── adicionar_comunicacao.py
+│   ├── rotina.py
+│   ├── cuidador.py
+│   ├── sos.py
+│   └── configuracoes.py
+│
+├── services/
+│   ├── armazenamento.py
+│   ├── emoji.py
+│   ├── notificacao.py
+│   ├── voz.py
+│   └── whatsapp.py
+│
+├── utils/
+│   ├── constantes.py
+│   ├── cores.py
+│   ├── helpers.py
+│   └── validacoes.py
+│
+├── .gitignore
+├── LICENSE
+├── main.py
+├── README.md
+└── requirements.txt
