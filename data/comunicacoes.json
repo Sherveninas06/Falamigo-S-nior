@@ -1,0 +1,34 @@
+[
+    {
+        "emoji": "✅",
+        "frase": "Sim"
+    },
+    {
+        "emoji": "❌",
+        "frase": "Não"
+    },
+    {
+        "emoji": "🙏",
+        "frase": "Obrigada"
+    },
+    {
+        "emoji": "🤲",
+        "frase": "Por favor"
+    },
+    {
+        "emoji": "😊",
+        "frase": "Estou bem"
+    },
+    {
+        "emoji": "😟",
+        "frase": "Estou mal"
+    },
+    {
+        "emoji": "🔁",
+        "frase": "Repita"
+    },
+    {
+        "emoji": "🆘",
+        "frase": "Pode me ajudar?"
+    }
+]
