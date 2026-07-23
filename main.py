@@ -4,6 +4,8 @@ from screens.home import tela_home
 from screens.comunicacao import tela_comunicacao
 from screens.adicionar_comunicacao import tela_adicionar_comunicacao
 from screens.rotina import tela_rotina
+from screens.rotina_manha import tela_rotina_manha
+
 
 def main(page: ft.Page):
 
@@ -34,6 +36,11 @@ def main(page: ft.Page):
         elif page.route == "/rotina":
             page.views.append(
                 tela_rotina(page)
+            )
+
+        elif page.route =="/rotina/manha":
+            page.views.append(
+                tela_rotina_manha(page)
             )
 
         page.update()
