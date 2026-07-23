@@ -60,7 +60,7 @@ def card(titulo, icone, ao_clicar):
 def tela_home(page):
 
     return ft.View(
-        route="/comunicacao",
+        route="/",
         bgcolor=COR_FUNDO,
 
         controls=[
@@ -98,7 +98,7 @@ def tela_home(page):
                     card(
                         "Rotina",
                         ft.Icons.CHECKLIST,
-                        lambda e: print("Rotina")
+                        lambda e: page.navigate("/rotina")
                     ),
 
                     card(
