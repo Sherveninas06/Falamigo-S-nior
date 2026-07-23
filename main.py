@@ -3,6 +3,7 @@ import flet as ft
 from screens.home import tela_home
 from screens.comunicacao import tela_comunicacao
 from screens.adicionar_comunicacao import tela_adicionar_comunicacao
+from screens.rotina import tela_rotina
 
 def main(page: ft.Page):
 
@@ -28,6 +29,11 @@ def main(page: ft.Page):
         elif page.route == "/adicionar_comunicacao":
             page.views.append(
                 tela_adicionar_comunicacao(page)
+            )
+
+        elif page.route == "/rotina":
+            page.views.append(
+                tela_rotina(page)
             )
 
         page.update()
