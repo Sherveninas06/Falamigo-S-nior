@@ -2,18 +2,62 @@
     "manha": [
         {
             "tarefa": "Higiene matinal",
-            "concluida": false
+            "concluida": true
+        },
+        {
+            "tarefa": "Arrumar a cama",
+            "concluida": true
         },
         {
             "tarefa": "Café da manhã",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "Remédios",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "Caminhada ou exercício",
+            "concluida": true
+        }
+    ],
+    "tarde": [
+        {
+            "tarefa": "Almoçar",
+            "concluida": false
+        },
+        {
+            "tarefa": "Novela da tarde",
+            "concluida": false
+        },
+        {
+            "tarefa": "Ler um livro",
+            "concluida": false
+        },
+        {
+            "tarefa": "Cuidar da horta",
+            "concluida": false
+        }
+    ],
+    "noite": [
+        {
+            "tarefa": "Jantar",
+            "concluida": false
+        },
+        {
+            "tarefa": "Novela da Noite",
+            "concluida": false
+        },
+        {
+            "tarefa": "Ler um livro",
+            "concluida": false
+        },
+        {
+            "tarefa": "remédios",
+            "concluida": false
+        },
+        {
+            "tarefa": "Higiene noturna",
             "concluida": false
         }
     ]
