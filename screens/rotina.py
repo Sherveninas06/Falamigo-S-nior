@@ -130,14 +130,14 @@ def tela_rotina(page):
                         "☀️",
                         "Tarde",
                         "Atividades durante a tarde",
-                        lambda e: print("Rotina da tarde")
+                        lambda e: page.navigate("/rotina/tarde")
                     ),
 
                     card_periodo(
                         "🌙",
                         "Noite",
                         "Atividades antes de dormir",
-                        lambda e: print("Rotina da noite")
+                        lambda e: page.navigate("/rotina/noite")
                     )
                 ]
             )
