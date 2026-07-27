@@ -1,5 +1,7 @@
 import flet as ft
 
+from services.rotina import obter_rotina, atualizar_tarefa
+
 
 # ===========================
 # PALETA DE CORES
@@ -19,6 +21,8 @@ COR_SUCESSO = "#22C55E"
 
 def tela_rotina_manha(page):
 
+    tarefas_salvas = obter_rotina("manha")
+
     texto_progresso = ft.Text(
         "0 de 4 concluídas",
         size=16,
@@ -26,71 +30,62 @@ def tela_rotina_manha(page):
         color=COR_TEXTO_SECUNDARIO
     )
 
-    def atualizar_progresso(e):
+    checkboxes = []
 
-        tarefas = [
-            higiene_matinal,
-            cafe_manha,
-            remedios,
-            exercicio
-        ]
+    def atualizar_progresso():
 
         total_concluidas = sum(
-            1 for tarefa in tarefas if tarefa.value
+            1 for checkbox in checkboxes if checkbox.value
         )
 
         texto_progresso.value = (
-            f"{total_concluidas} de {len(tarefas)} concluídas"
+            f"{total_concluidas} de {len(checkboxes)} concluídas"
         )
 
         page.update()
 
-    higiene_matinal = ft.Checkbox(
-        label="Higiene matinal",
-        value=False,
-        on_change=atualizar_progresso,
+    def criar_checkbox(indice, tarefa):
 
-        label_style=ft.TextStyle(
-            size=20,
-            weight=ft.FontWeight.W_600,
-            color="#111827"
+        def ao_marcar(e):
+
+            atualizar_tarefa(
+                "manha",
+                indice,
+                e.control.value
+            )
+
+            atualizar_progresso()
+
+        checkbox = ft.Checkbox(
+            label=tarefa["tarefa"],
+            value=tarefa.get("concluida", False),
+            on_change=ao_marcar,
+
+            label_style=ft.TextStyle(
+                size=20,
+                weight=ft.FontWeight.W_600,
+                color=COR_TEXTO
+            ),
+
+            active_color=COR_SUCESSO
         )
+
+        checkboxes.append(checkbox)
+
+        return checkbox
+
+    lista_checkboxes = [
+        criar_checkbox(indice, tarefa)
+        for indice, tarefa in enumerate(tarefas_salvas)
+    ]
+
+    total_inicial = sum(
+        1 for tarefa in tarefas_salvas
+        if tarefa.get("concluida", False)
     )
 
-    cafe_manha = ft.Checkbox(
-        label="Café da manhã",
-        value=False,
-        on_change=atualizar_progresso,
-
-        label_style=ft.TextStyle(
-            size=20,
-            weight=ft.FontWeight.W_600,
-            color="#111827"
-        )
-    )
-
-    remedios = ft.Checkbox(
-        label="Remédios",
-        value=False,
-        on_change=atualizar_progresso,
-
-        label_style=ft.TextStyle(
-            size=20,
-            weight=ft.FontWeight.W_600,
-            color="#111827"
-        )
-    )
-
-    exercicio = ft.Checkbox(
-        label="Exercícios físicos",
-        value=False,
-        on_change=atualizar_progresso,
-
-        label_style=ft.TextStyle(
-            size=20,
-            weight=ft.FontWeight.W_600,
-            color="#111827"
-        )
+    texto_progresso.value = (
+        f"{total_inicial} de {len(tarefas_salvas)} concluídas"
     )
 
     return ft.View(
@@ -156,13 +151,7 @@ def tela_rotina_manha(page):
 
                         content=ft.Column(
                             spacing=18,
-
-                            controls=[
-                                higiene_matinal,
-                                cafe_manha,
-                                remedios,
-                                exercicio
-                            ]
+                            controls=lista_checkboxes
                         )
                     ),
 
@@ -172,7 +161,6 @@ def tela_rotina_manha(page):
                         border_radius=15,
                         bgcolor="#ECFDF5",
                         alignment=ft.Alignment.CENTER,
-
                         content=texto_progresso
                     )
                 ]
