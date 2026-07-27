@@ -1,0 +1,20 @@
+{
+    "manha": [
+        {
+            "tarefa": "Higiene matinal",
+            "concluida": false
+        },
+        {
+            "tarefa": "Café da manhã",
+            "concluida": false
+        },
+        {
+            "tarefa": "Remédios",
+            "concluida": false
+        },
+        {
+            "tarefa": "Caminhada ou exercício",
+            "concluida": false
+        }
+    ]
+}
