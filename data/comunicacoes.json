@@ -30,5 +30,121 @@
     {
         "emoji": "🆘",
         "frase": "Pode me ajudar?"
+    },
+    {
+        "emoji": "🚻",
+        "frase": "Banheiro"
+    },
+    {
+        "emoji": "🥤",
+        "frase": "Estou com sede"
+    },
+    {
+        "emoji": "🍽️",
+        "frase": "Estou com fome"
+    },
+    {
+        "emoji": "☕",
+        "frase": "Quero café"
+    },
+    {
+        "emoji": "💧",
+        "frase": "Quero água"
+    },
+    {
+        "emoji": "🍎",
+        "frase": "Quero comer"
+    },
+    {
+        "emoji": "💊",
+        "frase": "Preciso dos remédios"
+    },
+    {
+        "emoji": "🤕",
+        "frase": "Estou com dor"
+    },
+    {
+        "emoji": "🩺",
+        "frase": "Preciso de um médico"
+    },
+    {
+        "emoji": "🤒",
+        "frase": "Não estou me sentindo bem"
+    },
+    {
+        "emoji": "🛌",
+        "frase": "Quero descansar"
+    },
+    {
+        "emoji": "🥰",
+        "frase": "Estou feliz"
+    },
+    {
+        "emoji": "😢",
+        "frase": "Estou triste"
+    },
+    {
+        "emoji": "😨",
+        "frase": "Estou com medo"
+    },
+    {
+        "emoji": "😡",
+        "frase": "Estou bravo"
+    },
+    {
+        "emoji": "🤗",
+        "frase": "Quero um abraço"
+    },
+    {
+        "emoji": "📞",
+        "frase": "Ligue para alguém"
+    },
+    {
+        "emoji": "👂",
+        "frase": "Não ouvi"
+    },
+    {
+        "emoji": "🗣️",
+        "frase": "Fale mais devagar"
+    },
+    {
+        "emoji": "👌",
+        "frase": "Entendi"
+    },
+    {
+        "emoji": "❓",
+        "frase": "Não entendi"
+    },
+    {
+        "emoji": "🪑",
+        "frase": "Quero sentar"
+    },
+    {
+        "emoji": "🚶",
+        "frase": "Quero caminhar"
+    },
+    {
+        "emoji": "🛏️",
+        "frase": "Quero dormir"
+    },
+    {
+        "emoji": "🚪",
+        "frase": "Quero sair"
+    },
+    {
+        "emoji": "🏠",
+        "frase": "Quero ir para casa"
+    },
+    {
+        "emoji": "❤️",
+        "frase": "Estou passando mal"
+    },
+    {
+        "emoji": "🩹",
+        "frase": "Me machuquei"
+    },
+    {
+        "emoji": "⚠️",
+        "frase": "É urgente"
     }
 ]

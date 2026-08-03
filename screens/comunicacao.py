@@ -163,7 +163,12 @@ def tela_comunicacao(page):
     return ft.View(
         route="/comunicacao",
         bgcolor=COR_FUNDO,
-        padding=20,
+        padding=ft.Padding(
+            left=20,
+            top=20,
+            right=20,
+            bottom=20
+        ),
 
         floating_action_button=ft.FloatingActionButton(
             icon=ft.Icons.ADD,
@@ -180,7 +185,8 @@ def tela_comunicacao(page):
             title=ft.Text(
                 "Comunicação",
                 size=22,
-                weight=ft.FontWeight.BOLD
+                weight=ft.FontWeight.BOLD,
+                color = "#000000"
             ),
 
             leading=ft.IconButton(
@@ -196,6 +202,7 @@ def tela_comunicacao(page):
             ft.Column(
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                 spacing=18,
+                expand=True,
                 scroll=ft.ScrollMode.AUTO,
 
                 controls=[
@@ -238,7 +245,11 @@ def tela_comunicacao(page):
                         ]
                     ),
 
-                    mensagem
+                    mensagem,
+
+                    ft.Container(
+                        height=90
+                    )
                 ]
             )
         ]

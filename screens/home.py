@@ -4,11 +4,33 @@ import flet as ft
 # PALETA DE CORES
 # ===========================
 
-COR_FUNDO = "#F7FAFC"
-COR_CARD = "#FFFFFF"
-COR_PRIMARIA = "#4F6BED"
-COR_TEXTO = "#1F2937"
-COR_SOS = "#E53935"
+# Fundo
+GRADIENTE_FUNDO = [
+    "#FFF9F2",
+    "#FAF2E8",
+    "#F6ECE2",
+    "#F2E5D8",
+    "#EEE0D1",
+]
+
+# Cards
+COR_CARD = "#FFFCF8"
+
+# Botões
+COR_PRIMARIA = "#6F8FAF"
+
+# Confirmar
+COR_VERDE = "#7A9D7E"
+
+# Destaques
+COR_TERRACOTA = "#C97B63"
+
+# Texto
+COR_TEXTO = "#4A4A4A"
+
+# SOS
+COR_SOS = "#C65D5D"
+
 
 
 # ===========================
@@ -61,67 +83,76 @@ def tela_home(page):
 
     return ft.View(
         route="/",
-        bgcolor=COR_FUNDO,
 
         controls=[
-            ft.Column(
-                horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                spacing=25,
+            ft.Container(
                 expand=True,
 
-                controls=[
-                    ft.Container(
-                        height=40
-                    ),
+                gradient=ft.LinearGradient(
+                    begin=ft.Alignment.TOP_CENTER,      #topo
+                    end=ft.Alignment.BOTTOM_CENTER,     #base
+                    colors=GRADIENTE_FUNDO,
+                ),
 
-                    ft.Container(
-                        width=150,
-                        height=150,
-                        bgcolor=COR_PRIMARIA,
-                        border_radius=65,
-                        alignment=ft.Alignment.CENTER,
+                content=ft.Column(
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                    spacing=25,
+                    expand=True,
 
-                        content=ft.Text(
-                            "Ajudante",
-                            color="white",
-                            size=22,
-                            weight=ft.FontWeight.BOLD
-                        )
-                    ),
+                    controls=[
+                        ft.Container(
+                            height=40
+                        ),
 
-                    card(
-                        "Comunicação",
-                        ft.Icons.RECORD_VOICE_OVER,
-                        lambda e: page.navigate("/comunicacao")
-                    ),
+                        ft.Container(
+                            width=150,
+                            height=150,
+                            bgcolor=COR_PRIMARIA,
+                            border_radius=65,
+                            alignment=ft.Alignment.CENTER,
 
-                    card(
-                        "Rotina",
-                        ft.Icons.CHECKLIST,
-                        lambda e: page.navigate("/rotina")
-                    ),
+                            content=ft.Text(
+                                "Ajudante",
+                                color="white",
+                                size=22,
+                                weight=ft.FontWeight.BOLD,
+                            ),
+                        ),
 
-                    card(
-                        "Família / Cuidador",
-                        ft.Icons.PEOPLE,
-                        lambda e: print("Família / Cuidador")
-                    ),
+                        card(
+                            "Comunicação",
+                            ft.Icons.RECORD_VOICE_OVER,
+                            lambda e: page.navigate("/comunicacao"),
+                        ),
 
-                    ft.Container(
-                        width=320,
-                        height=80,
-                        bgcolor=COR_SOS,
-                        border_radius=20,
-                        alignment=ft.Alignment.CENTER,
+                        card(
+                            "Rotina",
+                            ft.Icons.CHECKLIST,
+                            lambda e: page.navigate("/rotina"),
+                        ),
 
-                        content=ft.Text(
-                            "SOS",
-                            size=30,
-                            weight=ft.FontWeight.BOLD,
-                            color="white"
-                        )
-                    )
-                ]
-            )
-        ]
+                        card(
+                            "Família / Cuidador",
+                            ft.Icons.PEOPLE,
+                            lambda e: page.navigate("/familiares"),
+                        ),
+
+                        ft.Container(
+                            width=320,
+                            height=80,
+                            bgcolor=COR_SOS,
+                            border_radius=20,
+                            alignment=ft.Alignment.CENTER,
+
+                            content=ft.Text(
+                                "SOS",
+                                size=30,
+                                weight=ft.FontWeight.BOLD,
+                                color="white",
+                            ),
+                        ),
+                    ],
+                ),
+            ),
+        ],
     )

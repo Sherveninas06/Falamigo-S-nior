@@ -185,3 +185,42 @@ def atualizar_tarefa(
     salvar_rotinas(rotinas)
 
     return True
+
+def adicionar_tarefa(periodo, nome_tarefa):
+
+    nome_tarefa = nome_tarefa.strip()
+
+    if not nome_tarefa:
+        return False
+
+    rotinas = carregar_rotinas()
+
+    if periodo not in rotinas:
+        rotinas[periodo] = []
+
+    nova_tarefa = {
+        "tarefa": nome_tarefa,
+        "concluida": False
+    }
+
+    rotinas[periodo].append(nova_tarefa)
+
+    salvar_rotinas(rotinas)
+
+    return True
+
+def excluir_tarefa(periodo, indice):
+
+    rotinas = carregar_rotinas()
+    
+    if periodo not in rotinas:
+        return False
+
+    if indice < 0 or indice >= len(rotinas[periodo]):
+        return False
+
+    rotinas[periodo].pop(indice)
+
+    salvar_rotinas(rotinas)
+
+    return True

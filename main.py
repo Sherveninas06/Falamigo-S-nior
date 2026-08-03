@@ -6,8 +6,10 @@ from screens.adicionar_comunicacao import tela_adicionar_comunicacao
 from screens.rotina import tela_rotina
 from screens.rotina_manha import tela_rotina_manha
 from screens.rotina_tarde import tela_rotina_tarde
-from screens.rotina_noite import tela_rotina_noite 
-
+from screens.rotina_noite import tela_rotina_noite
+from screens.familiares import tela_familiares
+from screens.contato import tela_contato
+from screens.adicionar_tarefa import tela_adicionar_tarefa
 
 def main(page: ft.Page):
 
@@ -40,19 +42,39 @@ def main(page: ft.Page):
                 tela_rotina(page)
             )
 
-        elif page.route =="/rotina/manha":
+        elif page.route == "/rotina/manha":
             page.views.append(
                 tela_rotina_manha(page)
             )
-        
-        elif page.route =="/rotina/tarde":
+
+        elif page.route == "/rotina/tarde":
             page.views.append(
                 tela_rotina_tarde(page)
             )
-        
-        elif page.route =="/rotina/noite":
+
+        elif page.route == "/rotina/noite":
             page.views.append(
                 tela_rotina_noite(page)
+            )
+
+        elif page.route == "/familiares":
+            page.views.append(
+                tela_familiares(page)
+            )
+
+        elif page.route.startswith("/contato/"):
+            tipo_contato = page.route.split("/")[-1]
+
+            page.views.append(
+                tela_contato(page, tipo_contato)
+            )
+
+        elif page.route.startswith("/rotina/adicionar/"):
+
+            periodo = page.route.split("/")[-1]
+
+            page.views.append(
+            tela_adicionar_tarefa(page,periodo)
             )
 
         page.update()
@@ -72,4 +94,7 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    ft.run(main)
+    ft.run(
+        main,
+        assets_dir="assets"
+    )

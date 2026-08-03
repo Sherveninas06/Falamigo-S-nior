@@ -19,42 +19,46 @@
         {
             "tarefa": "Caminhada ou exercício",
             "concluida": true
+        },
+        {
+            "tarefa": "beber agua",
+            "concluida": false
         }
     ],
     "tarde": [
         {
             "tarefa": "Almoçar",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "Novela da tarde",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "Ler um livro",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "Cuidar da horta",
-            "concluida": false
+            "concluida": true
         }
     ],
     "noite": [
         {
             "tarefa": "Jantar",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "Novela da Noite",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "Ler um livro",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "remédios",
-            "concluida": false
+            "concluida": true
         },
         {
             "tarefa": "Higiene noturna",
