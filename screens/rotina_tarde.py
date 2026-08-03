@@ -8,20 +8,24 @@ from services.rotina import (
 
 
 # ===========================
-# PALETA DE CORES
+# NOVA PALETA
 # ===========================
 
-COR_FUNDO = "#F7FAFC"
+COR_FUNDO = "#F5F2EE"
 COR_CARD = "#FFFFFF"
-COR_PRIMARIA = "#4F6BED"
-COR_TEXTO = "#111827"
-COR_TEXTO_SECUNDARIO = "#64748B"
-COR_SUCESSO = "#22C55E"
-COR_VERMELHO = "#DC2626"
+COR_VERDE = "#8FAE9A"
+COR_VERDE_ESCURO = "#5F806B"
+COR_VERDE_CLARO = "#EAF3EC"
+COR_AMARELO_CLARO = "#FFF3D8"
+COR_TEXTO = "#333333"
+COR_TEXTO_SECUNDARIO = "#6B625F"
+COR_VERMELHO = "#E57373"
+COR_VERMELHO_CLARO = "#FDE8E6"
+COR_BRANCO = "#FFFFFF"
 
 
 # ===========================
-# TELA ROTINA DA MANHÃ
+# TELA ROTINA DA TARDE
 # ===========================
 
 def tela_rotina_tarde(page):
@@ -44,25 +48,15 @@ def tela_rotina_tarde(page):
         "0 de 0 concluídas",
         size=16,
         weight=ft.FontWeight.BOLD,
-        color=COR_TEXTO_SECUNDARIO
+        color=COR_VERDE_ESCURO
     )
 
     checkboxes = []
 
-    # ===========================
-    # CANCELAR EXCLUSÃO
-    # ===========================
-
     def cancelar_exclusao(e):
-
         indice_selecionado["valor"] = None
         area_exclusao.visible = False
-
         page.update()
-
-    # ===========================
-    # CONFIRMAR EXCLUSÃO
-    # ===========================
 
     def confirmar_exclusao(e):
 
@@ -80,22 +74,30 @@ def tela_rotina_tarde(page):
             page.navigate("/rotina")
             page.navigate("/rotina/tarde")
 
-    # ===========================
-    # ÁREA DE EXCLUSÃO
-    # ===========================
-
     area_exclusao = ft.Container(
         visible=False,
-        width=340,
+        width=365,
         padding=20,
-        bgcolor="#FEF2F2",
-        border_radius=16,
+        bgcolor=COR_VERMELHO_CLARO,
+        border_radius=20,
+
+        shadow=ft.BoxShadow(
+            blur_radius=8,
+            color="#18000000",
+            offset=ft.Offset(0, 3)
+        ),
 
         content=ft.Column(
             horizontal_alignment=ft.CrossAxisAlignment.CENTER,
             spacing=15,
 
             controls=[
+                ft.Icon(
+                    ft.Icons.DELETE_OUTLINE,
+                    size=36,
+                    color=COR_VERMELHO
+                ),
+
                 texto_exclusao,
 
                 ft.Row(
@@ -113,7 +115,7 @@ def tela_rotina_tarde(page):
                             "Excluir",
                             icon=ft.Icons.DELETE,
                             bgcolor=COR_VERMELHO,
-                            color="white",
+                            color=COR_BRANCO,
                             on_click=confirmar_exclusao
                         )
                     ]
@@ -121,10 +123,6 @@ def tela_rotina_tarde(page):
             ]
         )
     )
-
-    # ===========================
-    # ATUALIZAR PROGRESSO
-    # ===========================
 
     def atualizar_progresso():
 
@@ -141,16 +139,12 @@ def tela_rotina_tarde(page):
 
         page.update()
 
-    # ===========================
-    # CRIAR CHECKBOX
-    # ===========================
-
     def criar_checkbox(indice, tarefa):
 
         def ao_marcar(e):
 
             atualizar_tarefa(
-                "manha",
+                "tarde",
                 indice,
                 e.control.value
             )
@@ -167,33 +161,43 @@ def tela_rotina_tarde(page):
             )
 
             area_exclusao.visible = True
-
             page.update()
 
         checkbox = ft.Checkbox(
             label=tarefa["tarefa"],
+
             value=tarefa.get(
                 "concluida",
                 False
             ),
+
             on_change=ao_marcar,
 
             label_style=ft.TextStyle(
-                size=20,
+                size=19,
                 weight=ft.FontWeight.W_600,
                 color=COR_TEXTO
             ),
 
-            active_color=COR_SUCESSO
+            active_color=COR_VERDE
         )
 
         checkboxes.append(checkbox)
 
         return ft.Container(
-            border_radius=12,
-            padding=5,
+            width=325,
+            padding=10,
+            bgcolor=COR_CARD,
+            border_radius=14,
             ink=True,
             on_long_press=ao_segurar,
+
+            shadow=ft.BoxShadow(
+                blur_radius=5,
+                color="#10000000",
+                offset=ft.Offset(0, 2)
+            ),
+
             content=checkbox
         )
 
@@ -217,13 +221,20 @@ def tela_rotina_tarde(page):
     return ft.View(
         route="/rotina/tarde",
         bgcolor=COR_FUNDO,
-        padding=20,
+
+        padding=ft.Padding(
+            left=20,
+            top=20,
+            right=20,
+            bottom=80
+        ),
 
         floating_action_button=ft.FloatingActionButton(
             icon=ft.Icons.ADD,
-            bgcolor=COR_PRIMARIA,
-            foreground_color="white",
+            bgcolor=COR_VERDE,
+            foreground_color=COR_BRANCO,
             tooltip="Adicionar tarefa",
+
             on_click=lambda e: page.navigate(
                 "/rotina/adicionar/tarde"
             )
@@ -234,36 +245,58 @@ def tela_rotina_tarde(page):
                 "Rotina da tarde",
                 size=22,
                 weight=ft.FontWeight.BOLD,
-                color=COR_TEXTO
+                color=COR_BRANCO
             ),
 
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
+                icon_color=COR_BRANCO,
                 tooltip="Voltar",
+
                 on_click=lambda e: page.navigate(
                     "/rotina"
                 )
             ),
 
-            bgcolor=COR_CARD
+            actions=[
+                ft.IconButton(
+                    icon=ft.Icons.ADD,
+                    icon_color=COR_BRANCO,
+                    tooltip="Adicionar tarefa",
+
+                    on_click=lambda e: page.navigate(
+                        "/rotina/adicionar/tarde"
+                    )
+                )
+            ],
+
+            bgcolor=COR_VERDE
         ),
 
         controls=[
             ft.Column(
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                spacing=20,
+                spacing=18,
                 expand=True,
                 scroll=ft.ScrollMode.AUTO,
 
                 controls=[
-                    ft.Text(
-                        "☀️",
-                        size=55
+                    ft.Container(
+                        width=95,
+                        height=95,
+                        bgcolor=COR_AMARELO_CLARO,
+                        border_radius=48,
+                        alignment=ft.Alignment.CENTER,
+
+                        content=ft.Text(
+                            "☀️",
+                            size=50
+                        )
                     ),
 
                     ft.Text(
-                        "Minha Tarde",
-                        size=26,
+                        "Minha tarde",
+                        size=28,
                         weight=ft.FontWeight.BOLD,
                         color=COR_TEXTO
                     ),
@@ -277,35 +310,52 @@ def tela_rotina_tarde(page):
                     ),
 
                     ft.Container(
-                        width=340,
-                        bgcolor=COR_CARD,
-                        border_radius=20,
-                        padding=20,
-
-                        shadow=ft.BoxShadow(
-                            blur_radius=10,
-                            color="#22000000",
-                            offset=ft.Offset(0, 4)
-                        ),
+                        width=365,
+                        padding=18,
+                        bgcolor="#FAF7F4",
+                        border_radius=22,
 
                         content=ft.Column(
-                            spacing=18,
+                            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                            spacing=12,
                             controls=lista_checkboxes
                         )
                     ),
 
-                    # A área de exclusão fica aqui:
-                    # depois da lista de tarefas
-                    # e antes do progresso.
                     area_exclusao,
 
                     ft.Container(
-                        width=340,
-                        padding=15,
-                        border_radius=15,
-                        bgcolor="#ECFDF5",
+                        width=365,
+                        padding=16,
+                        border_radius=18,
+                        bgcolor=COR_VERDE_CLARO,
                         alignment=ft.Alignment.CENTER,
-                        content=texto_progresso
+
+                        content=ft.Row(
+                            alignment=ft.MainAxisAlignment.CENTER,
+                            spacing=8,
+
+                            controls=[
+                                ft.Icon(
+                                    ft.Icons.CHECK_CIRCLE,
+                                    color=COR_VERDE_ESCURO,
+                                    size=24
+                                ),
+
+                                texto_progresso
+                            ]
+                        )
+                    ),
+
+                    ft.Text(
+                        "Pressione uma tarefa para excluir.",
+                        size=14,
+                        color=COR_TEXTO_SECUNDARIO,
+                        text_align=ft.TextAlign.CENTER
+                    ),
+
+                    ft.Container(
+                        height=60
                     )
                 ]
             )
