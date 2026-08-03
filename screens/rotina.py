@@ -2,34 +2,44 @@ import flet as ft
 
 
 # ===========================
-# PALETA DE CORES
+# NOVA PALETA
 # ===========================
 
-COR_FUNDO = "#F7FAFC"
+COR_FUNDO = "#F5F2EE"
 COR_CARD = "#FFFFFF"
-COR_PRIMARIA = "#4F6BED"
-COR_TEXTO = "#1F2937"
-COR_TEXTO_SECUNDARIO = "#64748B"
+COR_ROSA = "#B98FA3"
+COR_VERDE = "#8FAE9A"
+COR_BEGE = "#E8C28F"
+COR_TEXTO = "#333333"
+COR_TEXTO_SECUNDARIO = "#6B625F"
+COR_BRANCO = "#FFFFFF"
 
 
 # ===========================
 # CARD DE PERÍODO
 # ===========================
 
-def card_periodo(emoji, titulo, descricao, ao_clicar):
+def card_periodo(
+    emoji,
+    titulo,
+    descricao,
+    cor_icone,
+    cor_fundo_icone,
+    ao_clicar
+):
 
     return ft.Container(
-        width=320,
+        width=365,
         height=125,
         bgcolor=COR_CARD,
-        border_radius=20,
-        padding=20,
+        border_radius=22,
+        padding=18,
         ink=True,
         on_click=ao_clicar,
 
         shadow=ft.BoxShadow(
             blur_radius=10,
-            color="#22000000",
+            color="#18000000",
             offset=ft.Offset(0, 4)
         ),
 
@@ -38,14 +48,23 @@ def card_periodo(emoji, titulo, descricao, ao_clicar):
             spacing=18,
 
             controls=[
-                ft.Text(
-                    emoji,
-                    size=45
+                ft.Container(
+                    width=72,
+                    height=72,
+                    bgcolor=cor_fundo_icone,
+                    border_radius=36,
+                    alignment=ft.Alignment.CENTER,
+
+                    content=ft.Text(
+                        emoji,
+                        size=38
+                    )
                 ),
 
                 ft.Column(
                     alignment=ft.MainAxisAlignment.CENTER,
-                    spacing=5,
+                    spacing=6,
+                    expand=True,
 
                     controls=[
                         ft.Text(
@@ -59,9 +78,15 @@ def card_periodo(emoji, titulo, descricao, ao_clicar):
                             descricao,
                             size=15,
                             color=COR_TEXTO_SECUNDARIO,
-                            width=210
+                            max_lines=2
                         )
                     ]
+                ),
+
+                ft.Icon(
+                    ft.Icons.CHEVRON_RIGHT,
+                    size=28,
+                    color=cor_icone
                 )
             ]
         )
@@ -84,31 +109,46 @@ def tela_rotina(page):
                 "Rotina",
                 size=22,
                 weight=ft.FontWeight.BOLD,
-                color=COR_TEXTO
+                color=COR_BRANCO
             ),
 
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
+                icon_color=COR_BRANCO,
                 tooltip="Voltar",
                 on_click=lambda e: page.navigate("/")
             ),
 
-            bgcolor=COR_CARD
+            bgcolor=COR_VERDE
         ),
 
         controls=[
             ft.Column(
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                spacing=20,
-                scroll=ft.ScrollMode.AUTO,
+                spacing=18,
                 expand=True,
+                scroll=ft.ScrollMode.AUTO,
 
                 controls=[
-                    ft.Container(height=10),
+                    ft.Container(height=5),
+
+                    ft.Container(
+                        width=100,
+                        height=100,
+                        bgcolor="#EAF3EC",
+                        border_radius=50,
+                        alignment=ft.Alignment.CENTER,
+
+                        content=ft.Icon(
+                            ft.Icons.CALENDAR_MONTH,
+                            size=55,
+                            color=COR_VERDE
+                        )
+                    ),
 
                     ft.Text(
                         "Minha rotina",
-                        size=26,
+                        size=28,
                         weight=ft.FontWeight.BOLD,
                         color=COR_TEXTO
                     ),
@@ -123,22 +163,30 @@ def tela_rotina(page):
                         "🌅",
                         "Manhã",
                         "Higiene, café, remédios e exercícios",
+                        COR_BEGE,
+                        "#FAEEDC",
                         lambda e: page.navigate("/rotina/manha")
                     ),
 
                     card_periodo(
                         "☀️",
                         "Tarde",
-                        "Atividades durante a tarde",
+                        "Almoço, descanso e atividades",
+                        COR_VERDE,
+                        "#EAF3EC",
                         lambda e: page.navigate("/rotina/tarde")
                     ),
 
                     card_periodo(
                         "🌙",
                         "Noite",
-                        "Atividades antes de dormir",
+                        "Jantar, higiene e preparação para dormir",
+                        COR_ROSA,
+                        "#F4E7EC",
                         lambda e: page.navigate("/rotina/noite")
-                    )
+                    ),
+
+                    ft.Container(height=30)
                 ]
             )
         ]
