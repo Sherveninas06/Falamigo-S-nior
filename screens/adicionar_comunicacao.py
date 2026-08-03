@@ -3,12 +3,24 @@ import flet as ft
 from services.comunicacoes import adicionar_comunicacao
 
 
-COR_FUNDO = "#F7FAFC"
-COR_CARD = "#FFFFFF"
-COR_PRIMARIA = "#4F6BED"
-COR_TEXTO = "#1F2937"
-COR_ERRO = "#DC2626"
+# ===========================
+# NOVA PALETA
+# ===========================
 
+COR_FUNDO = "#F5F2EE"
+COR_CARD = "#FFFFFF"
+COR_ROSA = "#B98FA3"
+COR_ROSA_ESCURO = "#8B3F5B"
+COR_ROSA_CLARO = "#F4E7EC"
+COR_TEXTO = "#333333"
+COR_TEXTO_SECUNDARIO = "#6B625F"
+COR_ERRO = "#D9534F"
+COR_BRANCO = "#FFFFFF"
+
+
+# ===========================
+# SUGESTÃO DE EMOJI
+# ===========================
 
 def sugerir_emoji(frase):
 
@@ -17,53 +29,68 @@ def sugerir_emoji(frase):
     sugestoes = {
         "água": "💧",
         "agua": "💧",
-        "sede": "💧",
+        "sede": "🥤",
 
         "comida": "🍽️",
         "fome": "🍽️",
-        "almoço": "🍽️",
-        "almoco": "🍽️",
-        "jantar": "🍽️",
+        "comer": "🍎",
+        "café": "☕",
+        "cafe": "☕",
 
         "banheiro": "🚻",
 
         "dor": "🤕",
-        "machucado": "🤕",
-        "machucada": "🤕",
+        "machucado": "🩹",
+        "machucada": "🩹",
 
         "remédio": "💊",
         "remedio": "💊",
         "medicamento": "💊",
 
+        "médico": "🩺",
+        "medico": "🩺",
+        "ambulância": "🚑",
+        "ambulancia": "🚑",
+
         "ajuda": "🆘",
         "socorro": "🆘",
+        "urgente": "⚠️",
 
         "sono": "😴",
-        "dormir": "😴",
+        "dormir": "🛏️",
+        "descansar": "🛌",
         "cansado": "😴",
         "cansada": "😴",
 
-        "feliz": "😊",
+        "feliz": "🥰",
         "bem": "😊",
-
         "triste": "😢",
         "mal": "😟",
+        "medo": "😨",
+        "bravo": "😡",
+        "brava": "😡",
+        "abraço": "🤗",
+        "abraco": "🤗",
 
-        "obrigado": "🙏",
-        "obrigada": "🙏",
+        "telefone": "📞",
+        "ligar": "📞",
+        "ouvi": "👂",
+        "devagar": "🗣️",
+        "entendi": "👌",
 
-        "telefone": "📱",
-        "celular": "📱",
-
-        "família": "👨‍👩‍👧",
-        "familia": "👨‍👩‍👧",
-
-        "frio": "🥶",
-        "calor": "🥵",
+        "sentar": "🪑",
+        "caminhar": "🚶",
+        "sair": "🚪",
+        "casa": "🏠",
 
         "sim": "✅",
         "não": "❌",
         "nao": "❌",
+
+        "obrigado": "🙏",
+        "obrigada": "🙏",
+        "por favor": "🤲",
+        "repita": "🔁"
     }
 
     for palavra, emoji in sugestoes.items():
@@ -72,6 +99,10 @@ def sugerir_emoji(frase):
 
     return "💬"
 
+
+# ===========================
+# TELA ADICIONAR COMUNICAÇÃO
+# ===========================
 
 def tela_adicionar_comunicacao(page):
 
@@ -91,34 +122,42 @@ def tela_adicionar_comunicacao(page):
 
         frase_digitada = campo_frase.value or ""
 
-        emoji_selecionado.value = sugerir_emoji(frase_digitada)
+        emoji_selecionado.value = sugerir_emoji(
+            frase_digitada
+        )
+
+        mensagem_erro.value = ""
 
         page.update()
 
     campo_frase = ft.TextField(
         label="Palavra ou frase",
-        hint_text="Ex.: Estou com fome",
-        multiline=False,
-        width=450,
+        hint_text="Ex.: Estou com sede",
+        multiline=True,
+        min_lines=1,
+        max_lines=3,
+        width=360,
         text_size=18,
+        autofocus=True,
 
-        color="#1F2937",
-        hint_style=ft.TextStyle(
-            color="#6B7280"
-        ),
-        label_style=ft.TextStyle(
-            color=COR_PRIMARIA,
-            weight=ft.FontWeight.W_600
-        ),
-
-        border_color=COR_PRIMARIA,
-        focused_border_color="#2563EB",
-        cursor_color="#2563EB",
-
-        bgcolor="#FFFFFF",
-        border_radius=12,
+        color=COR_TEXTO,
+        bgcolor=COR_CARD,
         filled=True,
 
+        border_color=COR_ROSA,
+        focused_border_color=COR_ROSA_ESCURO,
+        cursor_color=COR_ROSA_ESCURO,
+
+        label_style=ft.TextStyle(
+            color=COR_ROSA_ESCURO,
+            weight=ft.FontWeight.BOLD
+        ),
+
+        hint_style=ft.TextStyle(
+            color=COR_TEXTO_SECUNDARIO
+        ),
+
+        border_radius=16,
         on_change=atualizar_emoji
     )
 
@@ -135,12 +174,13 @@ def tela_adicionar_comunicacao(page):
             page.update()
             return
 
-        adicionar_comunicacao(
+        foi_salvo = adicionar_comunicacao(
             frase=frase,
             emoji=emoji_selecionado.value
         )
 
-        page.navigate("/comunicacao")
+        if foi_salvo:
+            page.navigate("/comunicacao")
 
     return ft.View(
         route="/adicionar_comunicacao",
@@ -150,40 +190,83 @@ def tela_adicionar_comunicacao(page):
         appbar=ft.AppBar(
             title=ft.Text(
                 "Adicionar comunicação",
-                weight=ft.FontWeight.BOLD
+                size=21,
+                weight=ft.FontWeight.BOLD,
+                color=COR_BRANCO
             ),
 
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
-                on_click=lambda e: page.navigate("/comunicacao")
+                icon_color=COR_BRANCO,
+                tooltip="Voltar",
+                on_click=lambda e: page.navigate(
+                    "/comunicacao"
+                )
             ),
 
-            bgcolor=COR_CARD
+            bgcolor=COR_ROSA
         ),
 
         controls=[
             ft.Column(
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                 spacing=22,
+                expand=True,
+                scroll=ft.ScrollMode.AUTO,
 
                 controls=[
+                    ft.Container(
+                        height=5
+                    ),
+
                     ft.Text(
                         "Adicionar palavra ou frase",
-                        size=24,
+                        size=25,
                         weight=ft.FontWeight.BOLD,
-                        color=COR_TEXTO
+                        color=COR_TEXTO,
+                        text_align=ft.TextAlign.CENTER
+                    ),
+
+                    ft.Text(
+                        " ",
+                        size=16,
+                        color=COR_TEXTO_SECUNDARIO,
+                        text_align=ft.TextAlign.CENTER,
+                        width=340
                     ),
 
                     campo_frase,
 
-                    ft.Text(
-                        "Emoji sugerido",
-                        size=18,
-                        weight=ft.FontWeight.BOLD,
-                        color=COR_TEXTO
-                    ),
+                    ft.Container(
+                        width=180,
+                        height=150,
+                        bgcolor=COR_ROSA_CLARO,
+                        border_radius=26,
+                        alignment=ft.Alignment.CENTER,
 
-                    emoji_selecionado,
+                        shadow=ft.BoxShadow(
+                            blur_radius=10,
+                            color="#18000000",
+                            offset=ft.Offset(0, 4)
+                        ),
+
+                        content=ft.Column(
+                            alignment=ft.MainAxisAlignment.CENTER,
+                            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                            spacing=8,
+
+                            controls=[
+                                ft.Text(
+                                    "Emoji sugerido",
+                                    size=17,
+                                    weight=ft.FontWeight.BOLD,
+                                    color=COR_ROSA_ESCURO
+                                ),
+
+                                emoji_selecionado
+                            ]
+                        )
+                    ),
 
                     mensagem_erro,
 
@@ -203,9 +286,15 @@ def tela_adicionar_comunicacao(page):
                             ft.FilledButton(
                                 "Salvar",
                                 icon=ft.Icons.SAVE,
+                                bgcolor=COR_ROSA,
+                                color=COR_BRANCO,
                                 on_click=salvar
                             )
                         ]
+                    ),
+
+                    ft.Container(
+                        height=30
                     )
                 ]
             )
