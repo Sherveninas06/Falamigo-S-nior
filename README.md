@@ -1,4 +1,4 @@
-# 👵👴 FalaMigo Sênior
+# 👵 FalaMigo Sênior 👴
 
 > Um assistente pessoal desenvolvido para promover mais autonomia, segurança e qualidade de vida para pessoas idosas.
 
