@@ -1,152 +1,264 @@
-# 👴🏻 Ajudante
+# 👵👴 FalaMigo Sênior
 
-Aplicativo Android desenvolvido em Python utilizando Flet, com foco em acessibilidade para idosos.
-
-O objetivo é facilitar a comunicação, auxiliar na rotina diária e oferecer uma forma simples de solicitar ajuda em situações de emergência.
+> Um assistente pessoal desenvolvido para promover mais autonomia, segurança e qualidade de vida para pessoas idosas.
 
 ---
 
-# Funcionalidades
+## 📖 Sobre o projeto
 
-✅ Comunicação por frases
+O **FalaMigo Sênior** é um aplicativo desenvolvido em **Python utilizando Flet**, criado para auxiliar idosos em atividades do dia a dia através de uma interface simples, acessível e intuitiva.
 
-✅ Reprodução de voz
+O objetivo é reduzir a dificuldade no uso da tecnologia, facilitando a comunicação com familiares, a organização da rotina e o acesso rápido a recursos importantes.
 
-✅ Cadastro de novas frases
-
-✅ Sugestão automática de emoji
-
-✅ Checklist de rotina
-
-✅ Cadastro de familiares
-
-✅ Botão SOS
+O projeto é uma evolução do conceito original do **FalaMigo**, adaptado especificamente para atender às necessidades da terceira idade.
 
 ---
 
-# Tecnologias
+# 🎯 Objetivos
 
-- Python
-- Flet
-- pyttsx3
-- JSON
-- SQLite (futuro)
-
----
-
-# Estrutura
-
-```
-Ajudante-Idoso/
-
-assets/
-components/
-data/
-docs/
-models/
-screens/
-services/
-utils/
-
-main.py
-```
+* Facilitar a comunicação do idoso.
+* Incentivar a autonomia nas tarefas diárias.
+* Tornar o aplicativo extremamente simples de utilizar.
+* Reduzir a quantidade de toques necessários.
+* Utilizar botões grandes e de fácil leitura.
+* Manter um visual acolhedor e moderno.
+* Auxiliar familiares e cuidadores.
 
 ---
 
-# Layout
+# ✨ Funcionalidades
 
-## Home
+## 💬 Comunicação
 
-- Comunicação
-- Rotina
-- Familiar / Cuidador
-- SOS
+Área composta por cartões de comunicação rápida.
+
+Exemplos:
+
+* ✅ Sim
+* ❌ Não
+* 🙏 Obrigado(a)
+* 😊 Estou bem
+* 😔 Estou mal
+* 🔁 Repita
+* 🤝 Pode me ajudar?
+
+### Recursos
+
+* Reprodução por voz ao tocar no cartão.
+* Botão (+) para criar novas palavras e frases.
+* Geração automática de emoji para novas frases.
+* Interface simples para idosos.
 
 ---
 
-## Comunicação
+## 📅 Rotina
 
-- Cartões de comunicação
-- Reprodução por voz
-- Cadastro de novas frases
+Organização das atividades diárias divididas em três períodos.
 
----
+### 🌅 Manhã
 
-## Rotina
-
-Checklist diário.
+Checklist personalizado.
 
 Exemplo:
 
-☐ Tomar remédio
+* Escovar os dentes
+* Café da manhã
+* Tomar medicamentos
 
-☐ Café da manhã
+Botão:
 
-☐ Caminhada
-
-☐ Dormir
-
----
-
-## Familiar / Cuidador
-
-Cadastro de contatos.
-
-- Nome
-- Telefone
-- Grau de parentesco
+➕ Adicionar nova tarefa
 
 ---
 
-## SOS
+### ☀️ Tarde
 
-Solicitação rápida de ajuda.
+Checklist personalizado.
 
----
+Botão:
 
-# Roadmap
-
-## Versão 1.0
-
-- [x] Home
-- [x] Comunicação
-- [x] Voz
-- [ ] Cadastro de frases
-- [ ] JSON
+➕ Adicionar nova tarefa
 
 ---
 
-## Versão 2.0
+### 🌙 Noite
 
-- [ ] Rotina
-- [ ] Cuidador
-- [ ] SOS
+Checklist personalizado.
 
----
+Botão:
 
-## Versão 3.0
-
-- [ ] IA para sugerir emojis
-- [ ] Lembretes
-- [ ] Notificações
-- [ ] SQLite
+➕ Adicionar nova tarefa
 
 ---
 
-## Versão 4.0
+### Recursos
 
-- [ ] Android
-- [ ] Google Play
-- [ ] Backup em nuvem
-
----
-
-# Objetivo
-
-Desenvolver um aplicativo simples, intuitivo e acessível para melhorar a autonomia de idosos por meio da tecnologia.
+* Marcação de tarefas concluídas.
+* Barra de progresso.
+* Exclusão de tarefas.
+* Salvamento automático.
+* Rotinas independentes (manhã, tarde e noite).
 
 ---
 
-Desenvolvido por
+## 👨‍👩‍👧 Familiar / Cuidador
 
-**Bárbara Sherveninas**
+Espaço dedicado aos principais contatos do idoso.
+
+Cada cartão pode conter:
+
+* Foto
+* Nome
+* Telefone
+* Ligação rápida
+* Envio de mensagem
+
+---
+
+## 🚨 SOS
+
+Botão de emergência sempre acessível.
+
+Objetivo:
+
+Permitir que o idoso solicite ajuda rapidamente em situações de emergência.
+
+---
+
+## 🤖 Assistente Virtual *(Em desenvolvimento)*
+
+Planejamento para integração de Inteligência Artificial.
+
+Possibilidades futuras:
+
+* Conversas por voz.
+* Lembretes inteligentes.
+* Respostas para dúvidas simples.
+* Apoio à rotina.
+* Companhia virtual.
+* Auxílio em tarefas do dia a dia.
+
+---
+
+# 🎨 Identidade Visual
+
+O projeto utiliza uma identidade visual acolhedora inspirada nas cores da empresa, porém adaptada para proporcionar conforto visual ao público idoso.
+
+### Paleta principal
+
+| Uso                        | Cor       |
+| -------------------------- | --------- |
+| Fundo                      | `#FFF8F2` |
+| Cards                      | `#FFFFFF` |
+| Azul Principal             | `#4F6BED` |
+| Familiar/Cuidador (Pancho) | `#D48A43` |
+| SOS                        | `#D64545` |
+| Texto                      | `#1F2937` |
+
+---
+
+# 🛠 Tecnologias
+
+* Python
+* Flet
+* JSON
+* VS Code
+* Git
+* GitHub
+
+Planejado:
+
+* Gemini API
+* Android
+* Text-to-Speech
+* Speech Recognition
+
+---
+
+# 📂 Estrutura do Projeto
+
+```text
+FalaMigo-Senior/
+
+│
+├── assets/
+│   ├── familiares/
+│   ├── icones/
+│   └── imagens/
+│
+├── screens/
+│   ├── home.py
+│   ├── comunicacao.py
+│   ├── rotina.py
+│   ├── rotina_manha.py
+│   ├── rotina_tarde.py
+│   ├── rotina_noite.py
+│   └── familiares.py
+│
+├── services/
+│   ├── rotina.py
+│   └── ...
+│
+├── main.py
+│
+└── README.md
+```
+
+---
+
+# 🚧 Roadmap
+
+## ✅ Concluído
+
+* Home
+* Comunicação
+* Rotina
+* Familiares
+* Adição dinâmica de tarefas
+* Paleta visual
+* Navegação
+* Estrutura do projeto
+
+---
+
+## 🔄 Em desenvolvimento
+
+* Assistente por IA
+* Voz dos cartões
+* Ligação rápida
+* Envio de mensagens
+* Personalização da rotina
+* Melhorias de acessibilidade
+
+---
+
+## 📌 Futuro
+
+* Integração com calendário.
+* Lembretes automáticos.
+* Reconhecimento de voz.
+* Chamada de vídeo.
+* Compartilhamento com cuidadores.
+* Monitoramento remoto.
+* Histórico de atividades.
+* Sincronização em nuvem.
+
+---
+
+# 💙 Filosofia do Projeto
+
+O FalaMigo Sênior busca oferecer uma experiência acolhedora e intuitiva, respeitando as necessidades do público idoso. Cada elemento da interface é pensado para reduzir a complexidade e aumentar a autonomia, utilizando botões grandes, linguagem simples, contraste adequado e uma navegação objetiva.
+
+---
+
+# 👩‍💻 Desenvolvimento
+
+Projeto desenvolvido como parte das iniciativas da **HGC**, com foco em acessibilidade, usabilidade e inclusão digital para idosos.
+
+---
+
+# 📄 Licença
+
+Este projeto está em desenvolvimento e possui finalidade educacional e de pesquisa.
+
+Todos os direitos reservados aos desenvolvedores do projeto.
