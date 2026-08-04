@@ -1,26 +1,46 @@
 import flet as ft
 
 
-COR_FUNDO = "#F7FAFC"
+# ===========================
+# NOVA PALETA
+# ===========================
+
+COR_FUNDO = "#F5F2EE"
 COR_CARD = "#FFFFFF"
-COR_TEXTO = "#1E293B"
-COR_TEXTO_SECUNDARIO = "#64748B"
+COR_PANCHO = "#C89A6B"
+COR_PANCHO_ESCURO = "#9A6A3D"
+COR_PANCHO_CLARO = "#F8E8D4"
+COR_TEXTO = "#333333"
+COR_TEXTO_SECUNDARIO = "#6B625F"
+COR_BRANCO = "#FFFFFF"
 
 
-def card_familiar(titulo, foto, rota, page):
+# ===========================
+# CARD DO CONTATO
+# ===========================
+
+def card_familiar(
+    titulo,
+    foto,
+    rota,
+    page
+):
 
     return ft.Container(
-        width=150,
-        height=180,
+        width=165,
+        height=205,
         bgcolor=COR_CARD,
-        border_radius=20,
-        padding=15,
+        border_radius=22,
+        padding=14,
         ink=True,
-        on_click=lambda e: page.navigate(rota),
+
+        on_click=lambda e: page.navigate(
+            rota
+        ),
 
         shadow=ft.BoxShadow(
             blur_radius=10,
-            color="#22000000",
+            color="#18000000",
             offset=ft.Offset(0, 4)
         ),
 
@@ -31,74 +51,112 @@ def card_familiar(titulo, foto, rota, page):
 
             controls=[
                 ft.Container(
-                    width=95,
-                    height=95,
-                    border_radius=50,
+                    width=110,
+                    height=110,
+                    bgcolor=COR_PANCHO_CLARO,
+                    border_radius=55,
+                    padding=5,
                     clip_behavior=ft.ClipBehavior.ANTI_ALIAS,
 
                     content=ft.Image(
                         src=foto,
-                        width=95,
-                        height=95,
+                        width=100,
+                        height=100,
                         fit=ft.BoxFit.COVER
                     )
                 ),
 
                 ft.Text(
                     titulo,
-                    size=19,
+                    size=20,
                     weight=ft.FontWeight.BOLD,
-                    color=COR_TEXTO
+                    color=COR_TEXTO,
+                    text_align=ft.TextAlign.CENTER
+                ),
+
+                ft.Text(
+                    "Toque para abrir",
+                    size=13,
+                    color=COR_TEXTO_SECUNDARIO,
+                    text_align=ft.TextAlign.CENTER
                 )
             ]
         )
     )
 
 
+# ===========================
+# TELA FAMÍLIA / CUIDADOR
+# ===========================
+
 def tela_familiares(page):
 
     return ft.View(
         route="/familiares",
         bgcolor=COR_FUNDO,
-        padding=20,
+
+        padding=ft.Padding(
+            left=20,
+            top=20,
+            right=20,
+            bottom=50
+        ),
 
         appbar=ft.AppBar(
             title=ft.Text(
-                "Familiar / Cuidador",
+                "Família / Cuidador",
                 size=22,
                 weight=ft.FontWeight.BOLD,
-                color=COR_TEXTO
+                color=COR_BRANCO
             ),
 
             leading=ft.IconButton(
                 icon=ft.Icons.ARROW_BACK,
+                icon_color=COR_BRANCO,
                 tooltip="Voltar",
+
                 on_click=lambda e: page.navigate("/")
             ),
 
-            bgcolor=COR_CARD
+            bgcolor=COR_PANCHO
         ),
 
         controls=[
             ft.Column(
                 horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                spacing=20,
+                spacing=18,
                 expand=True,
                 scroll=ft.ScrollMode.AUTO,
 
                 controls=[
+                    ft.Container(
+                        width=100,
+                        height=100,
+                        bgcolor=COR_PANCHO_CLARO,
+                        border_radius=50,
+                        alignment=ft.Alignment.CENTER,
+
+                        content=ft.Icon(
+                            ft.Icons.PEOPLE,
+                            size=55,
+                            color=COR_PANCHO_ESCURO
+                        )
+                    ),
+
                     ft.Text(
                         "Quem você deseja chamar?",
-                        size=25,
+                        size=27,
                         weight=ft.FontWeight.BOLD,
                         color=COR_TEXTO,
                         text_align=ft.TextAlign.CENTER
                     ),
 
                     ft.Text(
-                        "Toque na foto da pessoa",
+                        "Toque na foto de um familiar ou cuidador.",
                         size=16,
-                        color=COR_TEXTO_SECUNDARIO
+                        color=COR_TEXTO_SECUNDARIO,
+                        text_align=ft.TextAlign.CENTER,
+                        width=340
                     ),
 
                     ft.Row(
@@ -108,14 +166,14 @@ def tela_familiares(page):
                         controls=[
                             card_familiar(
                                 "Filha",
-                                "familiares/filha.jpg",
+                                "/familiares/Filha.jpg",
                                 "/contato/filha",
                                 page
                             ),
 
                             card_familiar(
                                 "Filho",
-                                "familiares/filho.jpg",
+                                "/familiares/Filho.jpg",
                                 "/contato/filho",
                                 page
                             )
@@ -129,19 +187,18 @@ def tela_familiares(page):
                         controls=[
                             card_familiar(
                                 "Genro",
-                                "familiares/genro.jpg",
+                                "/familiares/Genro.jpg",
                                 "/contato/genro",
                                 page
                             ),
 
                             card_familiar(
                                 "Nora",
-                                "familiares/nora.jpg",
+                                "/familiares/Nora.jpg",
                                 "/contato/nora",
                                 page
                             )
                         ]
-                            
                     ),
 
                     ft.Row(
@@ -151,18 +208,22 @@ def tela_familiares(page):
                         controls=[
                             card_familiar(
                                 "Cuidador",
-                                "cuidadores/cuidador.jpg",
+                                "/cuidadores/Cuidador.jpg",
                                 "/contato/cuidador",
                                 page
                             ),
 
                             card_familiar(
                                 "Cuidadora",
-                                "cuidadores/cuidadora.jpg",
+                                "/cuidadores/Cuidadora.jpg",
                                 "/contato/cuidadora",
                                 page
                             )
                         ]
+                    ),
+
+                    ft.Container(
+                        height=30
                     )
                 ]
             )
