@@ -28,3 +28,6 @@ Thumbs.db
 *.temp
 
 requirements.txt
+
+# Arquivos gerados pelo build
+build/

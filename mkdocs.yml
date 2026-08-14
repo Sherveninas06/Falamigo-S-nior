@@ -1,0 +1,7 @@
+site_name: FletTts
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings

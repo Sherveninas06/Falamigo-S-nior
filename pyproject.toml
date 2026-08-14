@@ -1,0 +1,25 @@
+[project]
+name = "falamigo-senior"
+version = "1.0.0"
+description = "Aplicativo assistente pessoal para idosos"
+requires-python = ">=3.10"
+
+dependencies = [
+    "flet>=0.86.0",
+    "flet-tts",
+    "certifi",
+]
+
+[tool.flet]
+product = "Falamigo Sênior"
+company = "HGC Software Solutions"
+org = "com.hgcsoftwaresolutions"
+
+[tool.flet.app]
+path = "."
+
+[tool.flet.dev_packages]
+flet-tts = "../flet_tts"
+
+[tool.uv.sources]
+flet-tts = { path = "../flet_tts", editable = true }

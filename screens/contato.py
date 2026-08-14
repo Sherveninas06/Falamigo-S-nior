@@ -35,37 +35,37 @@ CONTATOS = {
     "filha": {
         "nome": "Isabela",
         "telefone": "5547999999999",
-        "foto": "/familiares/Filha.jpg"
+        "foto": "familiares/Filha.jpg"
     },
 
     "filho": {
         "nome": "Mateus",
         "telefone": "5547988888888",
-        "foto": "/familiares/Filho.jpg"
+        "foto": "familiares/Filho.jpg"
     },
 
     "genro": {
         "nome": "João",
         "telefone": "5547977777777",
-        "foto": "/familiares/Genro.jpg"
+        "foto": "familiares/Genro.jpg"
     },
 
     "nora": {
         "nome": "Jasmin",
         "telefone": "5547966666666",
-        "foto": "/familiares/Nora.jpg"
+        "foto": "familiares/Nora.jpg"
     },
 
     "cuidador": {
         "nome": "Fernando",
         "telefone": "5547955555555",
-        "foto": "/cuidadores/Cuidador.jpg"
+        "foto": "cuidadores/Cuidador.jpg"
     },
 
     "cuidadora": {
         "nome": "Maria",
         "telefone": "5547944444444",
-        "foto": "/cuidadores/Cuidadora.jpg"
+        "foto": "cuidadores/Cuidadora.jpg"
     }
 }
 

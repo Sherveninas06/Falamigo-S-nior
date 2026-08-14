@@ -15,14 +15,6 @@
         {
             "tarefa": "Remédios",
             "concluida": true
-        },
-        {
-            "tarefa": "Caminhada ou exercício",
-            "concluida": true
-        },
-        {
-            "tarefa": "beber agua",
-            "concluida": false
         }
     ],
     "tarde": [
@@ -40,7 +32,7 @@
         },
         {
             "tarefa": "Cuidar da horta",
-            "concluida": true
+            "concluida": false
         }
     ],
     "noite": [

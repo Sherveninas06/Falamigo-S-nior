@@ -166,14 +166,14 @@ def tela_familiares(page):
                         controls=[
                             card_familiar(
                                 "Filha",
-                                "/familiares/Filha.jpg",
+                                "familiares/Filha.jpg",
                                 "/contato/filha",
                                 page
                             ),
 
                             card_familiar(
                                 "Filho",
-                                "/familiares/Filho.jpg",
+                                "familiares/Filho.jpg",
                                 "/contato/filho",
                                 page
                             )
@@ -187,14 +187,14 @@ def tela_familiares(page):
                         controls=[
                             card_familiar(
                                 "Genro",
-                                "/familiares/Genro.jpg",
+                                "familiares/Genro.jpg",
                                 "/contato/genro",
                                 page
                             ),
 
                             card_familiar(
                                 "Nora",
-                                "/familiares/Nora.jpg",
+                                "familiares/Nora.jpg",
                                 "/contato/nora",
                                 page
                             )
@@ -208,14 +208,14 @@ def tela_familiares(page):
                         controls=[
                             card_familiar(
                                 "Cuidador",
-                                "/cuidadores/Cuidador.jpg",
+                                "cuidadores/Cuidador.jpg",
                                 "/contato/cuidador",
                                 page
                             ),
 
                             card_familiar(
                                 "Cuidadora",
-                                "/cuidadores/Cuidadora.jpg",
+                                "cuidadores/Cuidadora.jpg",
                                 "/contato/cuidadora",
                                 page
                             )

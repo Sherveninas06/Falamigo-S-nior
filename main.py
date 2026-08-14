@@ -1,5 +1,7 @@
 import flet as ft
 
+from services.voz import falar, parar_voz
+
 from screens.home import tela_home
 from screens.comunicacao import tela_comunicacao
 from screens.adicionar_comunicacao import tela_adicionar_comunicacao
@@ -17,7 +19,9 @@ def main(page: ft.Page):
     page.bgcolor = "#F7FAFC"
     page.padding = 0
 
+
     def mudar_rota(e=None):
+        parar_voz()
 
         print(f"Rota atual: {page.route}")
 
@@ -63,6 +67,7 @@ def main(page: ft.Page):
             )
 
         elif page.route.startswith("/contato/"):
+
             tipo_contato = page.route.split("/")[-1]
 
             page.views.append(
@@ -74,7 +79,7 @@ def main(page: ft.Page):
             periodo = page.route.split("/")[-1]
 
             page.views.append(
-            tela_adicionar_tarefa(page,periodo)
+                tela_adicionar_tarefa(page, periodo)
             )
 
         page.update()

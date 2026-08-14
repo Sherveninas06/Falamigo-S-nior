@@ -1,264 +1,83 @@
-# 👵 FalaMigo Sênior 👴
+# flet-tts
 
-> Um assistente pessoal desenvolvido para promover mais autonomia, segurança e qualidade de vida para pessoas idosas.
+flet-tts [Flet](https://flet.dev) extension.
 
----
+<!--- If your extension wraps a Flutter package, credit it here, ex:
+It is based on the [xyz](https://pub.dev/packages/xyz) Flutter package. -->
 
-## 📖 Sobre o projeto
+## Platform Support
 
-O **FalaMigo Sênior** é um aplicativo desenvolvido em **Python utilizando Flet**, criado para auxiliar idosos em atividades do dia a dia através de uma interface simples, acessível e intuitiva.
+<!--- Update the table accordingly for your extension, using ✅ and ❌. -->
 
-O objetivo é reduzir a dificuldade no uso da tecnologia, facilitando a comunicação com familiares, a organização da rotina e o acesso rápido a recursos importantes.
+| Platform  | iOS | Android | Web | Windows | macOS | Linux |
+|-----------|-----|---------|-----|---------|-------|-------|
+| Supported | ✅   | ✅       | ✅   | ✅       | ✅     | ✅     |
 
-O projeto é uma evolução do conceito original do **FalaMigo**, adaptado especificamente para atender às necessidades da terceira idade.
+## Usage
 
----
+### Installation
 
-# 🎯 Objetivos
+Add `flet-tts` dependency to the `pyproject.toml` of your Flet project:
 
-* Facilitar a comunicação do idoso.
-* Incentivar a autonomia nas tarefas diárias.
-* Tornar o aplicativo extremamente simples de utilizar.
-* Reduzir a quantidade de toques necessários.
-* Utilizar botões grandes e de fácil leitura.
-* Manter um visual acolhedor e moderno.
-* Auxiliar familiares e cuidadores.
+* **From Git**
 
----
-
-# ✨ Funcionalidades
-
-## 💬 Comunicação
-
-Área composta por cartões de comunicação rápida.
-
-Exemplos:
-
-* ✅ Sim
-* ❌ Não
-* 🙏 Obrigado(a)
-* 😊 Estou bem
-* 😔 Estou mal
-* 🔁 Repita
-* 🤝 Pode me ajudar?
-
-### Recursos
-
-* Reprodução por voz ao tocar no cartão.
-* Botão (+) para criar novas palavras e frases.
-* Geração automática de emoji para novas frases.
-* Interface simples para idosos.
-
----
-
-## 📅 Rotina
-
-Organização das atividades diárias divididas em três períodos.
-
-### 🌅 Manhã
-
-Checklist personalizado.
-
-Exemplo:
-
-* Escovar os dentes
-* Café da manhã
-* Tomar medicamentos
-
-Botão:
-
-➕ Adicionar nova tarefa
-
----
-
-### ☀️ Tarde
-
-Checklist personalizado.
-
-Botão:
-
-➕ Adicionar nova tarefa
-
----
-
-### 🌙 Noite
-
-Checklist personalizado.
-
-Botão:
-
-➕ Adicionar nova tarefa
-
----
-
-### Recursos
-
-* Marcação de tarefas concluídas.
-* Barra de progresso.
-* Exclusão de tarefas.
-* Salvamento automático.
-* Rotinas independentes (manhã, tarde e noite).
-
----
-
-## 👨‍👩‍👧 Familiar / Cuidador
-
-Espaço dedicado aos principais contatos do idoso.
-
-Cada cartão pode conter:
-
-* Foto
-* Nome
-* Telefone
-* Ligação rápida
-* Envio de mensagem
-
----
-
-## 🚨 SOS
-
-Botão de emergência sempre acessível.
-
-Objetivo:
-
-Permitir que o idoso solicite ajuda rapidamente em situações de emergência.
-
----
-
-## 🤖 Assistente Virtual *(Em desenvolvimento)*
-
-Planejamento para integração de Inteligência Artificial.
-
-Possibilidades futuras:
-
-* Conversas por voz.
-* Lembretes inteligentes.
-* Respostas para dúvidas simples.
-* Apoio à rotina.
-* Companhia virtual.
-* Auxílio em tarefas do dia a dia.
-
----
-
-# 🎨 Identidade Visual
-
-O projeto utiliza uma identidade visual acolhedora inspirada nas cores da empresa, porém adaptada para proporcionar conforto visual ao público idoso.
-
-### Paleta principal
-
-| Uso                        | Cor       |
-| -------------------------- | --------- |
-| Fundo                      | `#FFF8F2` |
-| Cards                      | `#FFFFFF` |
-| Azul Principal             | `#4F6BED` |
-| Familiar/Cuidador (Pancho) | `#D48A43` |
-| SOS                        | `#D64545` |
-| Texto                      | `#1F2937` |
-
----
-
-# 🛠 Tecnologias
-
-* Python
-* Flet
-* JSON
-* VS Code
-* Git
-* GitHub
-
-Planejado:
-
-* Gemini API
-* Android
-* Text-to-Speech
-* Speech Recognition
-
----
-
-# 📂 Estrutura do Projeto
-
-```text
-FalaMigo-Senior/
-
-│
-├── assets/
-│   ├── familiares/
-│   ├── icones/
-│   └── imagens/
-│
-├── screens/
-│   ├── home.py
-│   ├── comunicacao.py
-│   ├── rotina.py
-│   ├── rotina_manha.py
-│   ├── rotina_tarde.py
-│   ├── rotina_noite.py
-│   └── familiares.py
-│
-├── services/
-│   ├── rotina.py
-│   └── ...
-│
-├── main.py
-│
-└── README.md
+```toml
+dependencies = [
+  "flet-tts @ git+https://github.com/MY_GITHUB_ACCOUNT/flet-tts",
+  "flet>=0.86.5",
+]
 ```
 
----
+<!--- Remove below list item, if your extension isn't yet available on PyPI. -->
 
-# 🚧 Roadmap
+* **From PyPI**
 
-## ✅ Concluído
+```toml
+dependencies = [
+  "flet-tts",
+  "flet>=0.86.5",
+]
+```
 
-* Home
-* Comunicação
-* Rotina
-* Familiares
-* Adição dinâmica de tarefas
-* Paleta visual
-* Navegação
-* Estrutura do projeto
+### Run your app
 
----
+A Flet extension has two sides: its Python controls/services and the native Flutter/Dart widgets behind them.
+That native code must be compiled into a Flet client before your controls can render, and the
+prebuilt client that a plain `flet run` uses does **not** include this extension.
 
-## 🔄 Em desenvolvimento
+So run your app in one of these two ways:
 
-* Assistente por IA
-* Voz dos cartões
-* Ligação rápida
-* Envio de mensagens
-* Personalização da rotina
-* Melhorias de acessibilidade
+**1. [`flet debug`](https://flet.dev/docs/cli/flet-debug)** — all platforms: *Windows, macOS, Linux, Web, iOS, Android*
 
----
+Compiles the extension and launches your app on the target you pick. 
+The simplest option, and the way to go for mobile and web:
 
-## 📌 Futuro
+```bash
+flet debug macos                   # desktop & web: no device needed
+flet debug android -d <device-id>  # mobile: connect a device/emulator first
+```
 
-* Integração com calendário.
-* Lembretes automáticos.
-* Reconhecimento de voz.
-* Chamada de vídeo.
-* Compartilhamento com cuidadores.
-* Monitoramento remoto.
-* Histórico de atividades.
-* Sincronização em nuvem.
+For iOS and Android, pass `-d <device-id>` (run `flet debug --show-devices` to list connected devices).
+Edits to your **Python** code are picked up the next time you run `flet debug`.
 
----
+**2. [`flet build`](https://flet.dev/docs/cli/flet-build) once, then [`flet run`](https://flet.dev/docs/cli/flet-run)** — desktop only: *Windows, macOS, Linux*
 
-# 💙 Filosofia do Projeto
+Build a custom client that bundles the extension **once**, then use `flet run` for a fast hot-reload loop while you edit Python:
 
-O FalaMigo Sênior busca oferecer uma experiência acolhedora e intuitiva, respeitando as necessidades do público idoso. Cada elemento da interface é pensado para reduzir a complexidade e aumentar a autonomia, utilizando botões grandes, linguagem simples, contraste adequado e uma navegação objetiva.
+```bash
+flet build macos  # or: flet build windows / flet build linux
+flet run          # run from the folder where build/ was created, so it reuses that client
+```
 
----
+`flet run` auto-detects the client under `build/<platform>/`, so your Python edits hot-reload instantly.
+Rebuild only when the extension's **Dart** code changes.
 
-# 👩‍💻 Desenvolvimento
+### Examples
 
-Projeto desenvolvido como parte das iniciativas da **HGC**, com foco em acessibilidade, usabilidade e inclusão digital para idosos.
+See the [examples](examples) directory.
 
----
+### Documentation
 
-# 📄 Licença
+<!--- Update the link, if your docs are elsewhere. Alternatively, you could write out all docs in this section directly. -->
 
-Este projeto está em desenvolvimento e possui finalidade educacional e de pesquisa.
-
-Todos os direitos reservados aos desenvolvedores do projeto.
+Detailed documentation for this package can be found [here](https://MY_GITHUB_ACCOUNT.github.io/flet-tts/).

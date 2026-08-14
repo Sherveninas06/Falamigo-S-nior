@@ -105,7 +105,7 @@ def tela_comunicacao(page):
 
         page.update()
 
-        falar(frase)
+        falar(page, frase)
 
     # ===========================
     # EXCLUIR CARTÃO
